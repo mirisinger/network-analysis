@@ -1,5 +1,5 @@
-from Authentication.login import UserInDB
-from query_DB import db_connection, execute_query
+from DB.query import db_connection, execute_query
+from Authentication.check_if_user_db import UserInDB
 from mysql.connector import Error
 
 
