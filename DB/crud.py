@@ -1,4 +1,6 @@
-from query import db_connection, execute_query
+from Authentication.login import UserInDB
+from query_DB import db_connection, execute_query
+from mysql.connector import Error
 
 
 def create_device(ip, mac, network_id):
@@ -39,3 +41,29 @@ def create_user_client(user_id, client_id):
             """
     insert_user_client = execute_query(connection, new_user_client)
     return insert_user_client
+
+
+# def get_all_users():
+#     connection = db_connection()
+#     get_users_query = "SELECT id, name, password FROM user_table;"
+#     users = execute_query(connection, get_users_query).fetchall()
+#     return users
+
+
+def get_password_by_name(username):
+    try:
+        connection = db_connection()
+        get_password_query = "SELECT password FROM user_table WHERE name = %s"
+        cursor = connection.cursor()
+        cursor.execute(get_password_query, username)
+        user_data = cursor.fetchone()
+        if user_data:
+            user_id, username, password = user_data
+            return UserInDB(name=username, id=user_id, hashed_password=password)
+        else:
+            return None
+    except Error as e:
+        print("Error:", e)
+        return None
+
+
