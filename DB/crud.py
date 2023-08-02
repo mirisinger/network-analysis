@@ -67,3 +67,5 @@ def get_password_by_name(username):
         return None
 
 
+def get_network_data_from_db(network_id):
+    pass

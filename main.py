@@ -3,15 +3,14 @@ import uvicorn
 from fastapi.templating import Jinja2Templates
 from fastapi.security import HTTPBasic, OAuth2PasswordRequestForm
 from starlette.responses import HTMLResponse
-
-#from Controllers.network_controller import make_network, get_network
+from Controllers.network_controller import make_network, get_network
 from Controllers.device_controller import view_filter_devices, view_client_devices
 from datetime import datetime, timedelta
 from fastapi import Depends, FastAPI, HTTPException, status, Body, Response, encoders, Request
 
 from Authentication.login import User, get_current_active_user, authenticate_user, Token, create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES
 from Authentication.check_if_user_db import User, UserInDB
-
+from DB.crud import get_network_data_from_db
 
 app = FastAPI()
 
@@ -56,17 +55,6 @@ async def read_users_me(current_user: User = Depends(get_current_active_user)):
 # @app.get("/users/me/items/")
 # async def read_own_items(current_user: User = Depends(Authentication.login.get_current_active_user)):
 #     return [{"item_id": "Foo", "owner": current_user.username}]
-
-
-# @app.get("/network/{network_id}/visualization/", response_class=HTMLResponse)
-# async def visualize_network(request: Request, network_id: int):
-#     # Fetch the network data using the network_id (you need to implement this)
-#     network_data = get_network_data_from_db(network_id)
-#     if not network_data:
-#         raise HTTPException(status_code=404, detail="Network not found")
-#
-#     # Render the HTML template with the network_id and network_data
-#     return templates.TemplateResponse("network_visualization.html", {"request": request, "network_id": network_id})
 #
 # @app.post(f"{NETWORK_PATH}/create_network")
 # async def create_network(pcap_file, client_id, date_taken, premise_name, technician_name):
