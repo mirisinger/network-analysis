@@ -1,0 +1,10 @@
+.idea
+.idea/
+Authentication/__pycache__
+Controllers/__pycache__
+DB/__pycache__
+File_Handler/__pycache__
+Authentication/__pycache__/
+Controllers/__pycache__/
+DB/__pycache__/
+File_Handler/__pycache__/

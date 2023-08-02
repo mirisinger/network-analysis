@@ -9,7 +9,6 @@ password NVARCHAR(50))
 
 # execute_query(user_table)
 
-
 insert_user = """
 INSERT INTO User
 (name, password)
@@ -61,9 +60,7 @@ FOREIGN KEY(client_id) REFERENCES Client(id),
 premise NVARCHAR(50),
 date_taken DATE)
 """
-
-# execute_query(network_table)
-
+# execute_query(db_connection, network_table)
 device_table = """
 CREATE TABLE Device(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -90,12 +87,17 @@ FOREIGN KEY(network_id) REFERENCES Network(id)
 
 # execute_query(device_connections_table)
 
+new_device = """
+   INSERT INTO Device (ip,mac,network_id)
+   VALUES (ip,mac,network_id);
+   """
+
 client_details = """
 INSERT into Client
 (name)
-VALUES('Moshe's school')
+VALUES('Moshe');
 """
-execute_query(client_details)
+# execute_query(client_details)
 
 #
 # def create_user(name, password):
@@ -106,5 +108,6 @@ execute_query(client_details)
 # val = (name, password)
 # """)
 
-
 # execute_query(db_connection, create_user('Dani', '55555555'))
+
+

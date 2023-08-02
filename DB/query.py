@@ -31,12 +31,15 @@ def create_server_connection(host_name, user_name, user_password, database):
 db_connection = create_server_connection(HOST, USER, PASSWORD, Database)
 
 
-def execute_query(query, connection= db_connection):
+
+def execute_query(query, value, connection=db_connection):
+    id = None
     try:
         cursor = connection.cursor()
-        cursor.execute(query)
+        cursor.execute(query, value)
         connection.commit()
+        id = cursor.lastrowid
         print("Query successful")
     except Error as err:
         print(f"Error: '{err}'")
-
+    return id
