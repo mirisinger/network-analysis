@@ -1,6 +1,6 @@
 from DB.insert_into_db import insert_network_into_db, insert_device_into_db, insert_device_connection_into_db
 from File_Handler.file_handler import read_file
-
+from DB.extract_from_db import get_network_dict
 
 def make_network(pcap_file, client_id, date_taken, premise, technician_name):
     conversations = await read_file(pcap_file)
@@ -13,4 +13,6 @@ def make_network(pcap_file, client_id, date_taken, premise, technician_name):
 
 
 def get_network(network_id):
+    # is_athorized
+    return get_network_dict(network_id)
     pass
