@@ -10,7 +10,9 @@ async def make_network(pcap_file, client_id, premise, date_taken, technician_nam
     insert_devices = await insert_device_into_db(devices_dict, network_id)
     insert_device_connection = await insert_device_connection_into_db(connections_list)
     # return insert_devices and insert_device_connection and insert_network and network_id
-    return "O.K The Network Created Successfully!"
+    if network_id and insert_devices and insert_device_connection:
+        return "O.K The Network Created Successfully!"
+    return "Failed to create network"
 
 
 def get_network(network_id):

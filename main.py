@@ -5,7 +5,7 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from Authentication.login import is_technician
 from Controllers.network_controller import make_network, get_network
 from Controllers.device_controller import view_filter_devices, view_client_devices
-
+import datetime
 
 app = FastAPI()
 
@@ -29,7 +29,7 @@ async def login(password, user_name):
 @app.post(f"{NETWORK_PATH}/create_network")
 async def create_network(file: UploadFile = File(...), client_id: int = Form(...), premise: str = Form(...), technician_name: str = Form(...)):
     file_content = await file.read()
-    date_taken = '2023-07-01'
+    date_taken = datetime.date.today()
     is_success = await make_network(file_content, client_id, premise, date_taken, technician_name)
     return is_success
 
