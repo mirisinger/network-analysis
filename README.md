@@ -1,12 +1,56 @@
-# network-analysis
-This project was coded in collaboratory with hadasar1, TamiKroizer and mirisinger to simulate working with a team. it was directed by Nvidia.
-:
-This is a web application for IT technicians that helps to map and visualizethe networks and devices deployed on clients’ locations.
-This application plays a crucial role in identifying faulty devices, creating clearance about the
-different devices networks and ensuring efficient service.
-The application processes .cap files, which are essentially data files containing network information captured from devices.
-By analyzing the data within these files, we gain valuable insights into the networks and devices, enabling to pinpoint potential issues and to help IT
-experts map said networks.
-In the end it shows an endpoint that when accessed via the browser with a certainnetwork id shows a dynamic page with some information about the requested
-network and a visual representation of the connections in the network.
-This was implemented using several Python libraries and SQL for DB.
+# Network Mapping Application
+This application helps map and visualize the networks and devices deployed on clients' premises. It can be used to identify faulty devices, create clarity about the different devices and networks, and ensure efficient service.
+
+This is a web application that the network analysis visualizes graph data. The application is built on a stack of technologies, including:
+
+ - Python server implemented with FastAPI
+ - SQL database
+ - External APIs
+ - React front end
+
+The application allows users to visualize and manipulate graph data. 
+
+Users can:
+ - Load graph data from a variety of sources, including local files, databases, and external APIs.
+ - Explore the graph data by viewing nodes and edges.
+ - Filter the graph data by node or edge properties.
+ - Apply graph algorithms to the graph data.
+ - Export the graph data to a variety of formats.
+ - The application is designed to be easy to use and extensible. The source code is available on GitHub.
+
+# Getting Started
+To get started with the application, you will need to:
+
+# Install the dependencies.
+Run the server.
+Open the web application in a browser.
+Installing the dependencies
+The dependencies can be installed using the following command:
+
+pip install -r requirements.txt
+
+
+### Running the server
+
+The server can be run using the following command:
+
+uvicorn app.main:app --reload
+
+
+This will start the server on port 8000.
+
+### Opening the web application
+
+The web application can be opened in a browser by visiting the following URL:
+
+http://localhost:8000
+
+# Features
+The project has the following features:
+
+ - Ability to load network capture files.
+ - Ability to describe the network using a graph.
+ - Ability to provide network analysis, such as the number of nodes, the number of links, the strength of the links between nodes, and so on.
+
+# Contributing
+Contributions to the application are welcome. Please open an issue on GitHub if you would like to contribute.
