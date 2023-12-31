@@ -1,4 +1,4 @@
-# NvidiaNetworkProject
+# network-analysis
 This project was coded in collaboratory with hadasar1, TamiKroizer and mirisinger to simulate working with a team. it was directed by Nvidia.
 :
 This is a web application for IT technicians that helps to map and visualizethe networks and devices deployed on clients’ locations.
